@@ -5,9 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <title>Rest countries</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <h3 class="header-title">Where in the world?</h3>
+                <div class="header-mode">
+                    <img src="./images/dark-mode.svg" alt="Dark mode" class="header-image">
+                    <h5 class="header-mode__title">Dark Mode</h5>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="hero">
+            <div class="container">
+                <div class="hero__inner">
+                    <form class="hero-form">
+                        <label for="hero-search">
+                            <!-- <img src="./images/search-icon.svg" alt="icon"> -->
+                            <input type="text" placeholder="Search for a country…" class="hero-search__input">
+                        </label>
+        
+                        <select name="select" id="filter" class="hero-form__filter">
+                            <option value="0" default hidden>Filter by Region</option>
+                            <option value="1">All</option>
+                        </select>
+                    </form>
+                    <ul class="hero-cards">
+                        <li class="hero-card">
+                            <img src="./images/germany.png" alt="country image">
+                            <div class="hero-card__body">
+                                <h3 class="card-title">
+                                    Germany
+                                </h3>
+                                <div class="card-extras">
+                                    <p class="card-population"><strong>Population: </strong> 81,770,900</p>
+                                    <p class="region"><strong>Region: </strong> Europe</p>
+                                    <p class="capital"><strong>Capital: </strong>Berlin</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hide-modal">
+            <!-- <div class="container">
+                <div class="modal__inner">
+                    <button class="modal-button__back"><img src="./images/back-icon.svg" alt="back">Back</button>
+                    <div class="modal-main">
+                        <img src="./images/germany.png" alt="image" class="modal-image">
+                        <div class="modal-body">
+                            <h1 class="modal-body__title">Belgium</h1>
+
+                            <div class="modal-body__main">
+                                <ul class="first-list">
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Native Name: </strong>België</p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong> Population: </strong>11,319,511 </p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Region: </strong>Europe</p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Sub Region: </strong>Western Europe</p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Capital: </strong>Brussels</p>
+                                    </li>
+                                </ul>
+
+                                <ul class="first-list">
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Top Level Domain: </strong>.be</p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Currencies: </strong>Euro</p>
+                                    </li>
+                                    <li class="list-item">
+                                        <p class="list-item__text"><strong>Languages: </strong>Dutch, French, German</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="modal-extra">
+                                <h3>Border Countries:</h3>
+                                <ul class="modal-extra__list">
+                                    <li class="modal-extra__list-item">
+                                        <button class="modal-extra__btn">France</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+
+
+    <script src="./utils.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
