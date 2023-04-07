@@ -1,26 +1,25 @@
-'use strict';
+"use strict";
 
-function renderFilter(arr){
-    const filteredArr = [];
-    arr.forEach((item,index)=>{
-        if(!filteredArr.includes(item.region)){
-            filteredArr.push(item.region)
-        }
-    })
+function renderFilter(arr) {
+  const filteredArr = [];
+  arr.forEach((item, index) => {
+    if (!filteredArr.includes(item.region)) {
+      filteredArr.push(item.region);
+    }
+  });
 
-    filteredArr.forEach((item,index)=>{
-        const option = document.createElement("option");
-        option.innerText = item;
-        elFilter.append(option);
-    })
+  filteredArr.forEach((item, index) => {
+    const option = document.createElement("option");
+    option.innerText = item;
+    elFilter.append(option);
+  });
 }
 
-function renderCards(arr){
+function renderCards(arr) {
+  elCards.innerHTML = "";
 
-    elCards.innerHTML = '';
-
-    arr.forEach((item)=>{
-        const html = `
+  arr.forEach((item, index) => {
+    const html = `
         <li class="hero-card">
             <img src="${item.flags.png}" alt="${item.flags.alt}" class="card-image" dataset-id="${item.idd.suffixes}">
             <div class="hero-card__body"  dataset-id="${item.idd.suffixes}">
@@ -33,38 +32,39 @@ function renderCards(arr){
                     <p class="capital"><strong>Capital: </strong>${item.capital[0]}</p>
                 </div>
             </div>
-        </li>`
+        </li>`;
 
-        elCards.insertAdjacentHTML("afterbegin", html);
-    })
+    elCards.insertAdjacentHTML("afterbegin", html);
+  });
 }
 
-function searchCards(arr,inputValue){  
-    if(inputValue){
-        let filteredArr = arr.filter((item) => item.name.official.toLowerCase().includes(inputValue));
-        renderCards(filteredArr)
-    } else{
-        renderCards(arr)
-    }
+function searchCards(arr, inputValue) {
+  if (inputValue) {
+    let filteredArr = arr.filter((item) =>
+      item.name.official.toLowerCase().includes(inputValue)
+    );
+    renderCards(filteredArr);
+  } else {
+    renderCards(arr);
+  }
 }
 
-function filterByRegion(arr,value){
-    if(value === '1') renderCards(arr);
-    else {
-        const filteredArr = arr.filter(item => item.region == value);
-        renderCards(filteredArr)
-    }
-} 
+function filterByRegion(arr, value) {
+  if (value === "1") renderCards(arr);
+  else {
+    const filteredArr = arr.filter((item) => item.region == value);
+    renderCards(filteredArr);
+  }
+}
 
+function renderElModal(arr, id) {
+  let filteredArr = arr.filter((item) => item.idd.suffixes == id);
 
-function renderElModal(arr, id){
-    let filteredArr = arr.filter(item => item.idd.suffixes == id);
+  if (filteredArr.length) {
+    elModal.innerHTML = "";
 
-    if(filteredArr.length){
-        elModal.innerHTML = "";
-
-let item = filteredArr[0];
-            const html = `
+    let item = filteredArr[0];
+    const html = `
         <div class="container">
                 <div class="modal__inner">
                     <button class="modal-button__back"><img src="./images/back-icon.svg" alt="back">Back</button>
@@ -118,8 +118,8 @@ let item = filteredArr[0];
                 </div>
             </div>`;
 
-            elModal.insertAdjacentHTML("afterbegin",html);
-        }
-        elHero.classList.add("hide-modal");
-        elModal.classList.remove("hide-modal");
+    elModal.insertAdjacentHTML("afterbegin", html);
+  }
+  elHero.classList.add("hide-modal");
+  elModal.classList.remove("hide-modal");
 }

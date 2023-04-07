@@ -511,10 +511,6 @@ h1, h2, h3, h4, h5 {
   position: relative;
 }
 
-.hero {
-  position: absolute;
-  z-index: 1;
-}
 .hero__inner {
   display: flex;
   align-items: center;
